@@ -1,25 +1,18 @@
 #ifndef MACLASSE_H
 #define MACLASSE_H
-#include<string>
-//  using namespace std; 不在头文件中使用，而是std::          
-class Pays {
+
+class Robot {
 public:
     //constructeur
-    Pays(const std::string& nom = "", double population = 0., unsigned superficie = 0);
-    //Sélecteurs
-    std::string getNom() const;
-    double getPopulation()const;
-    unsigned getSuerficie() const;
-    //Modificateurs
-    void setNom(const std::string& nom);
-    void setPopulation(double population);
-    void setSuperficie(unsigned superficie);
-    //Autre
-    double densitePopulation()const;
+    Robot(int positionInitiale=0);
+    //modificateur
+    void faireDemiTour();
+    void deplacer(unsigned nbUnites=1);
+    //sélecteur
+    int getPosition() const;
 private:
-    std::string nom; //nom du pays
-    double population; //en mio d'habitants
-    unsigned superficie; //en km2
+    int direction;//+1=vers la droite,-1=vers la gauche
+    int position;//la position courante du robot
 };
 
 #endif /* MACLASSE_H */
